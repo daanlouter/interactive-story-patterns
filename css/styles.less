@@ -143,7 +143,7 @@ header{
 	}
 }
 	.scrolldown{
-		display: block;
+		display: none;
 		text-align: center;
 		font-family: OpenSansCondensed;
 		margin: 20px auto 35px;
@@ -151,6 +151,7 @@ header{
 
 
 .overview{
+	margin-top: 50px;
 	.navContainer{
 		width:225px;
 		float: left;
@@ -269,7 +270,7 @@ header{
 		margin-top: 10px;
 	}
 	.cardContainer{
-		margin-left:-8px;
+		margin-left:-6px;
 	}
 	.results{
 		padding-bottom: 50px;
@@ -282,17 +283,17 @@ header{
 				margin-top: 20px;
 				margin-bottom: 10px;
 			}
-			p{margin: 0; font-family: MetaBold; font-size: 14px; float: left;}
+			p{margin: 0; font-family: MetaBold; font-size: 14px; float: left; line-height: 2em;}
 			a{
 				color: #fff;
 				text-decoration: none;
 				font-size: 14px;
-				padding: 8px 8px 5px;
+				padding: 2px 6px 0;
 				font-family: MetaBold;
-				float: left;	
 				border-radius: 2px;
-				margin-top: -7px;
+				margin-top: -2px;
 				margin-left: 5px;
+				position: absolute;
 			}
 		}
 		
@@ -396,53 +397,58 @@ header{
 }
 
 	.result{
-			width: 220px;
-			background: #fff;
-			padding: 0 15px 10px 15px;
-			float: left;
-			margin-left: 8px;
-			margin-bottom: 8px;
-			img{
-				margin-left: -15px;
-			}
-			.credit{
-			margin-top:0;
-			text-transform: uppercase;
-			font-size: 10px;
-
+		width: 220px;
+		background: #fff;
+		padding: 0 15px 10px 15px;
+		display: inline-block;
+		margin-left: 4px;
+		margin-bottom: 8px;
+		vertical-align: top;
+		border: 1px solid rgba(0,0,0,0.2);
+		cursor: pointer;
+		img{
+			margin-left: -15px;
+			border-bottom: 1px solid rgba(0,0,0,0.1);
 		}
-			h5{
-				font-family: MetaBold;
-				font-size: 16px;
-				float: left;
-				margin-top: 15px;
-				margin-bottom: 0;
-			}
-			p.description{
-				margin-top: 5px;
-			}
-			a.category{
-				float: right;
-				font-family:OpenSansCondensed;
-				font-size: 12px;
-				padding: 5px 5px 2px 5px;
-				color: #444;
-				background: #efefef;
-				border-radius: 2px;
+		.credit{
+		margin-top:0;
+		text-transform: uppercase;
+		font-size: 10px;
+		}
+		h5{
+			font-family: MetaBold;
+			font-size: 16px;
+			margin-top: 15px;
+			margin-bottom: 0;
+		}
+		p.description{
+			margin-top: 5px;
+		}
+		a.category{
+			font-family:OpenSansCondensed;
+			font-size: 12px;
+			padding: 5px 5px 2px 5px;
+			color: #444;
+			background: #efefef;
+			border-radius: 2px;
+			text-decoration: none;
+			margin-top:12px;
+			display: none;
+		}
+		p.amountInteractives{
+			font-size: 12px;
+			a{
+				color: @interactivesColor;
+				border-bottom: 2px solid @interactivesColor;
+				padding-bottom: 2px;
 				text-decoration: none;
-				margin-top:12px;
-			}
-			p.amountInteractives{
-				font-size: 12px;
-				a{
-					color: @interactivesColor;
-					border-bottom: 2px solid @interactivesColor;
-					padding-bottom: 2px;
-					text-decoration: none;
-					font-family: MetaBold;
-				}
+				font-family: MetaBold;
 			}
 		}
+		&:hover{
+			border: 1px solid rgba(0,0,0,0.4);
+		}
+	}
 .fixed{
 position:fixed;
 top:0;
