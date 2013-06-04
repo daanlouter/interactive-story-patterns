@@ -13,6 +13,7 @@ body{
 	-webkit-font-smoothing: antialiased;
 	color: #444;
 	background: #ededed;
+	height: auto;
 }
 
 .content{
@@ -146,11 +147,15 @@ header{
 		display: none;
 		text-align: center;
 		font-family: OpenSansCondensed;
-		margin: 20px auto 35px;
+		margin: 20px auto 0;
+		cursor: pointer;
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+		padding-bottom: 18px;
 	}
 
 
 .overview{
+	display: none;
 	margin-top: 50px;
 	.navContainer{
 		width:225px;
@@ -199,7 +204,7 @@ header{
 						border: none;
 					}
 					&:hover{
-						background: #fbfbfb;
+						background: #f0f0f0;
 					}
 				}
 				.navPatterns.active{
@@ -423,6 +428,7 @@ header{
 		}
 		p.description{
 			margin-top: 5px;
+			font-size: 14px;
 		}
 		a.category{
 			font-family:OpenSansCondensed;
