@@ -35,12 +35,24 @@ $(window).ready(function(){
 });
 
 $(".answer").click(function(){
-	$(this).toggleClass("active");
-  $(".overview").fadeIn();
-  $(".scrolldown").fadeIn();
-  checkNavHeight();
-  
+  var className = $(this).attr('class').split(' ')[1];
+  if($(this).hasClass("active")){
+    $(this).removeClass("active");
+    $('.filterContainer .'+className).prop('checked', false);
+  } else{
+    	$(this).addClass("active");
+      $(".overview").removeClass("hidden");
+      $(".scrolldown").fadeIn();
+      checkNavHeight();
+      console.log(className);
+      $('.filterContainer .'+className).prop('checked', true);
+    }
 });
+
+// $(".wizardAn= .active").click(function(){
+//   console.log('hoi');
+//   $(this).removeClass("active");
+// });
 
 $('.result').click(function() {
    window.location = "pattern.html";
