@@ -121,9 +121,29 @@ header{
 			margin: 5px 0 0  0;
 			cursor: pointer;
 			-webkit-transition: background 0.2s linear;
+			position:relative;
+			.example{
+				display: none;
+				position:absolute;
+				width: 90%;
+				background: #eee;
+				border:1px solid rgba(0,0,0,0.3);
+				font-weight: bold;
+				font-size: 10px;
+				padding: 4px;
+				//box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+				top: -45px;
+				margin-left:5%;
+				margin-right: 5%;
+				color: #444;
+				text-align: center;
+			}
 			&:hover{
 				background:#f2f2f2;
 				border: 1px solid #bebebe;
+				.example{
+					display: inline;
+				}
 			}
 			&.active{
 				background:@highlightColor;
