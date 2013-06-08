@@ -2,14 +2,44 @@ var navTop;
 var patternsTop; 
 var interactivesTop; 
 var toolsTop;
+var screenshotExample;
+var exampleCredit;
+var exampleDescription;
+var exampleTitle;
 
 $(window).load(function(){
 	
 });
 
 $(window).ready(function(){
-	
-	
+var jsonUrl = "https://spreadsheets.google.com/feeds/list/0ApWF_l9bN5GcdHhCalkwZmx0SERrX01SU1RBdzJEZWc/oda/public/basic?alt=json";
+$.getJSON(jsonUrl, function(json) {
+  $.each(json.feed.entry, function(i, item) {
+    exampleTitle = item.title.$t;
+    var array = item.content.$t.split(", ");
+    $.each(array,function (j, jottum){
+      screenshotExample = "../img/" + array[3].split(": ")[1];
+      exampleCredit = array[0].split(": ")[1];
+      exampleDescription = array[1].split(": ")[1];
+      patternsUsed = array[4].split(": ")[1];
+    });
+   interactiveVullen(); 
+  });
+  
+});
+
+var interactiveVullen = function() {
+  console.log(exampleDescription);
+$(".interactivesOverview .cardContainer").append('<a href="example.html" class="result exampleResult"><img src="' + screenshotExample + '" /><h5>'+exampleTitle+'</h5><div class="clearboth"></div><p class="credit">' + exampleCredit + '</p><p class="description">' + exampleDescription + '</p><h6>PATTERNS USED</h6><div class="patternsUsed"><div>Magazine-like article</div><div>Reconstruction</div><div>Big images inside page</div></div></a>');
+}
+
+
+
+
+
+
+
+
 
 	$(window).scroll(function (event) {
 		var y = $(this).scrollTop();
@@ -54,8 +84,11 @@ $(".answer").click(function(){
 //   $(this).removeClass("active");
 // });
 
-$('.result').click(function() {
-   window.location = "pattern.html";
+$('.patternResult').click(function() {
+   window.location = "patterns/pattern.html";
+});
+$('.exampleResult').click(function() {
+   window.location = "examples/example.html";
 });
 
 

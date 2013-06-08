@@ -7,8 +7,31 @@
 h1,h2,h3,h4,h5,h6,h7,h8,h9,h10, strong{
 	font-weight: normal;
 }
-body{
+.interactiveColor{
+	color: @interactivesColor;
+	border-color: @interactivesColor;
+}
 
+.patternColor{
+	color: @patternsColor;
+	border-color: @patternsColor;
+}
+
+.toolColor{
+	color: @toolsColor;
+	border-color: @toolsColor;
+}
+
+a{
+	text-decoration: none;
+	color: @highlightColor;
+}
+
+img{
+	max-width: 1024px;
+}
+body{
+	padding-bottom: 40px;
 	font-family: "MetaNormal";
 	-webkit-font-smoothing: antialiased;
 	color: #444;
@@ -44,6 +67,9 @@ header{
 		ul{
 			margin: 0 0 0;
 			padding: 0;
+			li:nth-child(1).active{background:@highlightColor;}li:nth-child(2).active{background:@patternsColor;}
+			li:nth-child(3).active{background:@interactivesColor;}li:nth-child(4).active{background:@toolsColor;}
+			
 			li{
 				display: inline-block;
 				font-size: 14px;
@@ -54,7 +80,7 @@ header{
 				a{
 					color: #fff;
 					text-decoration: none;
-
+					border: none;
 				}
 				&.active{
 						background:@highlightColor;
@@ -71,7 +97,6 @@ header{
 	box-shadow: 0 1px 1px rgba(0,0,0,0.15);
 	strong{
 		font-family:MetaBold;
-		color: @patternsColor;
 	}
 	margin-bottom: 20px
 }
@@ -175,36 +200,11 @@ header{
 
 
 .overview{
-	margin-top: 50px;
+	margin-top: 56px;
 	.navContainer{
 		width:225px;
 		float: left;
 		margin-top: 10px;
-
-		nav.treeNav{
-			.active{
-				font-family: MetaBold;
-				color: @patternsColor;
-			}
-			h3{
-				font-family: MetaBold;
-				font-size: 20px;
-			}
-			h4{
-				font-family: MetaBold;
-				font-size: 16px;
-				margin-bottom: 0;
-			}
-			ul{
-				margin-top:5px;
-				padding-left: 10px;
-				li{
-					font-family:MetaNormal;
-					font-size: 14px;
-					margin-bottom: 5px;
-				}
-			}
-		}
 
 		nav.navigatie{
 			border-radius: 2px;
@@ -281,7 +281,7 @@ header{
 			}
 			.filterContainer{
 				font-size:12px;
-				padding-left: 10px;
+				padding: 0 10px;
 				p{font-family:MetaBold; margin-bottom: 5px;}
 				form{
 					input{
@@ -342,7 +342,7 @@ header{
 			margin-bottom:5px;
 			margin-top: 10px;
 		}
-		.patternsUsed a{
+		.patternsUsed div{
 			font-family: OpenSansCondensed;
 			font-size: 12px;
 			color: #6d4c4c;
@@ -354,82 +354,16 @@ header{
 			margin-bottom: 2px;
 		}
 	}
-	.detailPage{
-		width: 770px;
-		float: right;
-		position: relative;
-		margin-top: 26px;
-		
-		.sectionName{
-			position:absolute;
-			top:2px;
-			right: 0;
-			margin-top: 0;
-			font-family: MetaBold;
-			font-size: 14px;
-		}
-		h3{
-			font-family: MetaBold;
-			font-size: 40px;
-			float: left;
-			margin-bottom: 10px;
-			margin-top: 15px;
-		}
-		.category{
-			float: left;
-			font-family: OpenSansCondensed;
-			background: #fff;
-			font-size: 14px;
-			border-radius:2px;
-			padding: 5px;
-			margin-top: 25px;
-			margin-left: 10px;
-		}
-		.description{
-			font-size: 18px;
-			margin-top: 0;
-		}
-		h4{
-			font-family: MetaBold;
-			font-size: 20px;
-			margin-bottom: 0;
-		}
-		ul{
-			margin-top: 0;
-			padding-left: 18px;
-			float: left;
-			li{
-
-			}
-		}
-		img.toWizard{
-			float: right;
-			margin-top: -30px;
-			margin-right: 180px;
-		}
-		.relatedInteractives{
-			margin-top: 80px;
-			h4{
-				a{
-					text-decoration: none;
-					border-bottom: 2px solid @interactivesColor;
-					color: @interactivesColor;
-					padding-bottom: 2px;
-				}
-				margin-bottom: 20px;
-			}
-		}
-	}
-	.patternDetail{border-top: 2px solid @patternsColor; .sectionName{color:@patternsColor;} h3{color:@patternsColor;}}
 	.tools{border-top:2px solid @toolsColor; .intro{a{background:@toolsColor;}}}
 }
 
 	.result{
 		width: 220px;
+		color: #444;
 		background: #fff;
 		padding: 0 15px 10px 15px;
 		display: inline-block;
-		margin-left: 4px;
+		margin-left: 2px;
 		margin-bottom: 8px;
 		vertical-align: top;
 		border: 1px solid rgba(0,0,0,0.2);
@@ -466,7 +400,7 @@ header{
 		}
 		p.amountInteractives{
 			font-size: 12px;
-			a{
+			span{
 				color: @interactivesColor;
 				border-bottom: 2px solid @interactivesColor;
 				padding-bottom: 2px;
@@ -488,3 +422,112 @@ top:0;
 	background: url(../img/skillIcon.png) no-repeat 0 2px;
 }
 
+//PATTERN DETAILPAGINA
+nav.treeNav{
+	margin-top: -10px;
+	.active{
+		font-family: MetaBold;
+		color: @patternsColor;
+	}
+	h3{
+		font-family: MetaBold;
+		font-size: 20px;
+		margin-top: 0;
+	}
+	h4{
+		font-family: MetaBold;
+		font-size: 16px;
+		margin-bottom: 0;
+	}
+	ul{
+		margin-top:5px;
+		padding-left: 10px;
+		li{
+			font-family:MetaNormal;
+			font-size: 14px;
+			margin-bottom: 5px;
+		}
+	}
+}
+
+
+.detailPage{
+float: right;
+position: relative;
+
+	.sectionName{
+		position:absolute;
+		top:2px;
+		right: 0;
+		margin-top: 0;
+		font-family: MetaBold;
+		font-size: 14px;
+	}
+	h3{
+		font-family: MetaBold;
+		font-size: 40px;
+		float: left;
+		margin-bottom: 10px;
+		margin-top: 15px;
+	}
+	.category{
+		float: left;
+		font-family: OpenSansCondensed;
+		background: #fff;
+		font-size: 14px;
+		border-radius:2px;
+		padding: 5px;
+		margin-top: 25px;
+		margin-left: 10px;
+	}
+	.description{
+		font-size: 18px;
+		margin-top: 0;
+	}
+	h4{
+		font-family: MetaBold;
+		font-size: 20px;
+		margin-bottom: 0;
+	}
+	ul{
+		margin-top: 0;
+		padding-left: 18px;
+		float: left;
+		li{
+
+		}
+	}
+	img.toWizard{
+		float: right;
+		margin-top: -30px;
+		margin-right: 180px;
+	}
+	.relatedInteractives{
+		margin-top: 80px;
+		h4{
+			a{
+				text-decoration: none;
+				border-bottom: 2px solid @interactivesColor;
+				color: @interactivesColor;
+				padding-bottom: 2px;
+			}
+			margin-bottom: 20px;
+		}
+	}
+}
+.patternDetail{width: 770px;border-top: 2px solid @patternsColor; .sectionName{color:@patternsColor;} h3{color:@patternsColor;}}
+	
+.interactiveDetail{
+	width: 1024px;
+	border-top: 2px solid @interactivesColor; 
+	.sectionName{color:@interactivesColor;} 
+	h3{color:@interactivesColor;}
+}
+
+.patternsOverview{
+	float: right;
+	width: 770px;
+}
+.noBorder{
+	border: none !important;
+}
