@@ -6,15 +6,27 @@ var screenshotExample;
 var exampleCredit;
 var exampleDescription;
 var exampleTitle;
+var patternTitle;
+var patternScreenshot;
+var patternDescription;
+var patternsUsed;
+
+var patternAmount;
+var toolTitle;
+var toolDescription;
+var toolLink;
+var toolLevel;
 
 $(window).load(function(){
 	
 });
 
 $(window).ready(function(){
-var jsonUrl = "https://spreadsheets.google.com/feeds/list/0ApWF_l9bN5GcdHhCalkwZmx0SERrX01SU1RBdzJEZWc/oda/public/basic?alt=json";
-$.getJSON(jsonUrl, function(json) {
+//Fill examples
+var exampleUrl = "https://spreadsheets.google.com/feeds/list/0ApWF_l9bN5GcdHhCalkwZmx0SERrX01SU1RBdzJEZWc/oda/public/basic?alt=json";
+$.getJSON(exampleUrl, function(json) {
   $.each(json.feed.entry, function(i, item) {
+    var patternList = "";
     exampleTitle = item.title.$t;
     var array = item.content.$t.split(", ");
     $.each(array,function (j, jottum){
@@ -23,15 +35,46 @@ $.getJSON(jsonUrl, function(json) {
       exampleDescription = array[1].split(": ")[1];
       patternsUsed = array[4].split(": ")[1];
     });
-   interactiveVullen(); 
+    $.each(patternsUsed.split("; "),function (k, kottum){
+      patternList = patternList + "<div>" + kottum + "</div>";
+    });
+   $(".interactivesOverview .cardContainer").append('<a href="example.html" class="result exampleResult"><img src="' + screenshotExample + '" /><h5>'+exampleTitle+'</h5><div class="clearboth"></div><p class="credit">' + exampleCredit + '</p><p class="description">' + exampleDescription + '</p><h6>PATTERNS USED</h6><div class="patternsUsed">' + patternList + '</div></a>');
+
   });
-  
 });
 
-var interactiveVullen = function() {
-  console.log(exampleDescription);
-$(".interactivesOverview .cardContainer").append('<a href="example.html" class="result exampleResult"><img src="' + screenshotExample + '" /><h5>'+exampleTitle+'</h5><div class="clearboth"></div><p class="credit">' + exampleCredit + '</p><p class="description">' + exampleDescription + '</p><h6>PATTERNS USED</h6><div class="patternsUsed"><div>Magazine-like article</div><div>Reconstruction</div><div>Big images inside page</div></div></a>');
-}
+//Fill patterns
+var patternUrl = "https://spreadsheets.google.com/feeds/list/0ApWF_l9bN5GcdHhCalkwZmx0SERrX01SU1RBdzJEZWc/od4/public/basic?alt=json";
+$.getJSON(patternUrl, function(json) {
+  $.each(json.feed.entry, function(i, item) {
+    patternTitle = item.title.$t;
+    var array = item.content.$t.split(", ");
+    $.each(array,function (j, jottum){
+      patternScreenshot = "../img/" + array[2].split(": ")[1];
+      patternDescription = array[1].split(": ")[1];
+      patternAmount = array[4].split(": ")[1];
+    });
+    console.log(item);
+   $(".patternsOverview").append('<a href="pattern.html" class="result patternResult"><img src="' + patternScreenshot + '" /><h5>' + patternTitle + '</h5><p class="description">' + patternDescription + '</p><p class="amountInteractives"><span>' +  patternAmount + ' interactives</span> use this pattern</p></a>');
+  });
+});
+
+
+//Fill tools
+var patternUrl = "https://spreadsheets.google.com/feeds/list/0ApWF_l9bN5GcdHhCalkwZmx0SERrX01SU1RBdzJEZWc/od5/public/basic?alt=json";
+$.getJSON(patternUrl, function(json) {
+  $.each(json.feed.entry, function(i, item) {
+    
+  toolTitle = item.title.$t;
+  var array = item.content.$t.split(", ");
+  $.each(array,function (j, jottum){
+    toolDescription = array[2].split(": ")[1];
+    toolLink = array[0].split(": ")[1];
+    toolLevel = array[1].split(": ")[1];
+  });
+  $(".toolsOverview").append('<a href="' + toolLink + '" class="result"><h5>' + toolTitle + '</h5><p class="credit">'+ toolLink +'</p><p class="description">' +toolDescription+ '</p><div class="skill">' +toolLevel+ '</div></a>');
+  });
+});
 
 
 
