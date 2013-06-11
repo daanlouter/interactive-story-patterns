@@ -10,100 +10,85 @@ var patternTitle;
 var patternScreenshot;
 var patternDescription;
 var patternsUsed;
-
 var patternAmount;
 var toolTitle;
 var toolDescription;
 var toolLink;
 var toolLevel;
 
-$(window).load(function(){
-	
-});
-
 $(window).ready(function(){
-//Fill examples
-var exampleUrl = "https://spreadsheets.google.com/feeds/list/0ApWF_l9bN5GcdHhCalkwZmx0SERrX01SU1RBdzJEZWc/oda/public/basic?alt=json";
-$.getJSON(exampleUrl, function(json) {
-  $.each(json.feed.entry, function(i, item) {
-    var patternList = "";
-    exampleTitle = item.title.$t;
-    var array = item.content.$t.split(", ");
-    $.each(array,function (j, jottum){
-      screenshotExample = "../img/" + array[3].split(": ")[1];
-      exampleCredit = array[0].split(": ")[1];
-      exampleDescription = array[1].split(": ")[1];
-      patternsUsed = array[4].split(": ")[1];
+
+  //Fill examples
+  var exampleUrl = "../data/examples.json";
+  $.getJSON(exampleUrl, function(json) {
+    $.each(json.feed.entry, function(i, item) {
+      var patternList = "";
+      exampleTitle = item.title.$t;
+      var array = item.content.$t.split(", ");
+      $.each(array,function (j, jottum){
+        screenshotExample = "../img/" + array[3].split(": ")[1];
+        exampleCredit = array[0].split(": ")[1];
+        exampleDescription = array[1].split(": ")[1];
+        patternsUsed = array[4].split(": ")[1];
+      });
+      $.each(patternsUsed.split("; "),function (k, kottum){
+        patternList = patternList + "<div>" + kottum + "</div>";
+      });
+     $(".interactivesOverview .cardContainer").append('<a href="example.html" class="result exampleResult"><img src="' + screenshotExample + '" /><h5>'+exampleTitle+'</h5><div class="clearboth"></div><p class="credit">' + exampleCredit + '</p><p class="description">' + exampleDescription + '</p><h6>PATTERNS USED</h6><div class="patternsUsed">' + patternList + '</div></a>');
+
     });
-    $.each(patternsUsed.split("; "),function (k, kottum){
-      patternList = patternList + "<div>" + kottum + "</div>";
+  });
+
+  //Fill patterns
+  var patternUrl = "../data/patterns.json";
+  $.getJSON(patternUrl, function(json) {
+    $.each(json.feed.entry, function(i, item) {
+      patternTitle = item.title.$t;
+      var array = item.content.$t.split(", ");
+      $.each(array,function (j, jottum){
+        patternScreenshot = "../img/" + array[2].split(": ")[1];
+        patternDescription = array[1].split(": ")[1];
+        patternAmount = array[4].split(": ")[1];
+      });
+      $(".patternsOverview").append('<a href="pattern.html" class="result patternResult"><img src="' + patternScreenshot + '" /><h5>' + patternTitle + '</h5><p class="description">' + patternDescription + '</p><p class="amountInteractives"><span>' +  patternAmount + ' interactives</span> use this pattern</p></a>');
     });
-   $(".interactivesOverview .cardContainer").append('<a href="example.html" class="result exampleResult"><img src="' + screenshotExample + '" /><h5>'+exampleTitle+'</h5><div class="clearboth"></div><p class="credit">' + exampleCredit + '</p><p class="description">' + exampleDescription + '</p><h6>PATTERNS USED</h6><div class="patternsUsed">' + patternList + '</div></a>');
-
   });
-});
 
-//Fill patterns
-var patternUrl = "https://spreadsheets.google.com/feeds/list/0ApWF_l9bN5GcdHhCalkwZmx0SERrX01SU1RBdzJEZWc/od4/public/basic?alt=json";
-$.getJSON(patternUrl, function(json) {
-  $.each(json.feed.entry, function(i, item) {
-    patternTitle = item.title.$t;
-    var array = item.content.$t.split(", ");
-    $.each(array,function (j, jottum){
-      patternScreenshot = "../img/" + array[2].split(": ")[1];
-      patternDescription = array[1].split(": ")[1];
-      patternAmount = array[4].split(": ")[1];
+
+  //Fill tools
+  var patternUrl = "../data/tools.json";
+  $.getJSON(patternUrl, function(json) {
+    $.each(json.feed.entry, function(i, item) {
+      toolTitle = item.title.$t;
+      var array = item.content.$t.split(", ");
+      $.each(array,function (j, jottum){
+        toolDescription = array[2].split(": ")[1];
+        toolLink = array[0].split(": ")[1];
+        toolLevel = array[1].split(": ")[1];
+      });
+      $(".toolsOverview").append('<a href="' + toolLink + '" class="result"><h5>' + toolTitle + '</h5><p class="credit">'+ toolLink +'</p><p class="description">' +toolDescription+ '</p><div class="skill">' +toolLevel+ '</div></a>');
     });
-    console.log(item);
-   $(".patternsOverview").append('<a href="pattern.html" class="result patternResult"><img src="' + patternScreenshot + '" /><h5>' + patternTitle + '</h5><p class="description">' + patternDescription + '</p><p class="amountInteractives"><span>' +  patternAmount + ' interactives</span> use this pattern</p></a>');
   });
-});
-
-
-//Fill tools
-var patternUrl = "https://spreadsheets.google.com/feeds/list/0ApWF_l9bN5GcdHhCalkwZmx0SERrX01SU1RBdzJEZWc/od5/public/basic?alt=json";
-$.getJSON(patternUrl, function(json) {
-  $.each(json.feed.entry, function(i, item) {
-    
-  toolTitle = item.title.$t;
-  var array = item.content.$t.split(", ");
-  $.each(array,function (j, jottum){
-    toolDescription = array[2].split(": ")[1];
-    toolLink = array[0].split(": ")[1];
-    toolLevel = array[1].split(": ")[1];
-  });
-  $(".toolsOverview").append('<a href="' + toolLink + '" class="result"><h5>' + toolTitle + '</h5><p class="credit">'+ toolLink +'</p><p class="description">' +toolDescription+ '</p><div class="skill">' +toolLevel+ '</div></a>');
-  });
-});
-
-
-
-
-
-
-
 
 
 	$(window).scroll(function (event) {
 		var y = $(this).scrollTop();
 		console.log(y);
 		if (y >= navTop) {
-      		// if so, ad the fixed class
-     		 $('.containerFixed').addClass('fixed');
-    	} else {
-      		// otherwise remove it
-      		$('.containerFixed').removeClass('fixed');
-    	}
-    	if(y>=patternsTop -10){
-    		$('.navPatterns').addClass('active');
-    		$('.navInteractives').removeClass('active');
-    		$('.navTools').removeClass('active');
-    	} if(y>=interactivesTop -10){
-    		console.log('hoi');
-    		$('.navInteractives').addClass('active');
-    		$('.navPatterns').removeClass('active');
-    		$('.navTools').removeClass('active');
-    	}
+     	$('.containerFixed').addClass('fixed');
+    } else {
+      	$('.containerFixed').removeClass('fixed');
+    }
+    if(y>=patternsTop -10){
+    	$('.navPatterns').addClass('active');
+    	$('.navInteractives').removeClass('active');
+    	$('.navTools').removeClass('active');
+    } if(y>=interactivesTop -10){
+    	console.log('hoi');
+    	$('.navInteractives').addClass('active');
+  		$('.navPatterns').removeClass('active');
+  		$('.navTools').removeClass('active');
+   	}
 	});
 });
 
@@ -121,19 +106,6 @@ $(".answer").click(function(){
       $('.filterContainer .'+className).prop('checked', true);
     }
 });
-
-// $(".wizardAn= .active").click(function(){
-//   console.log('hoi');
-//   $(this).removeClass("active");
-// });
-
-$('.patternResult').click(function() {
-   window.location = "patterns/pattern.html";
-});
-$('.exampleResult').click(function() {
-   window.location = "examples/example.html";
-});
-
 
 
 $(".filterNav").click(function(){
@@ -157,10 +129,6 @@ $(".navInteractives").click(function(){
 $(".navTools").click(function(){
   $("html, body").animate({ scrollTop: toolsTop - 10 }, 500);
 });
-
-
-
-
 
 
 var checkNavHeight = function(){

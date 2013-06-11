@@ -1,0 +1,600 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+h8,
+h9,
+h10,
+strong {
+  font-weight: normal;
+}
+.interactiveColor {
+  color: #db9e68;
+  border-color: #db9e68;
+}
+.patternColor {
+  color: #db6868;
+  border-color: #db6868;
+}
+.toolColor {
+  color: #46c5a6;
+  border-color: #46c5a6;
+}
+a {
+  text-decoration: none;
+  color: #68b6db;
+}
+img {
+  max-width: 1024px;
+}
+body {
+  padding-bottom: 40px;
+  font-family: "MetaNormal";
+  -webkit-font-smoothing: antialiased;
+  color: #444;
+  background: #ededed;
+  height: auto;
+}
+.content {
+  width: 1024px;
+  margin: 0 auto;
+}
+header {
+  height: 50px;
+  width: 100%;
+  background: #444;
+}
+header h1 {
+  margin: 18px 0 0;
+  padding: 0;
+  color: #fff;
+  font-size: 14px;
+  font-family: "MetaBold";
+  float: left;
+}
+header h1 em {
+  font-family: "MetaNormalItalic";
+  font-style: normal;
+}
+header nav {
+  float: right;
+}
+header nav ul {
+  margin: 0 0 0;
+  padding: 0;
+}
+header nav ul li:nth-child(1).active {
+  background: #68b6db;
+}
+header nav ul li:nth-child(2).active {
+  background: #db6868;
+}
+header nav ul li:nth-child(3).active {
+  background: #db9e68;
+}
+header nav ul li:nth-child(4).active {
+  background: #46c5a6;
+}
+header nav ul li {
+  display: inline-block;
+  font-size: 14px;
+  height: 33px;
+  padding: 17px 10px 0;
+  margin-right: -4px;
+}
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  border: none;
+}
+header nav ul li.active {
+  background: #68b6db;
+}
+.breadcrumb {
+  width: 100%;
+  background: #fff;
+  height: 28px;
+  padding-top: 12px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+}
+.breadcrumb strong {
+  font-family: MetaBold;
+}
+.breadcrumb a {
+  color: #444;
+}
+.wizard {
+  margin: 0 auto;
+  background: #fff;
+  padding-top: 50px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  padding-bottom: 80px;
+}
+.wizard h2 {
+  font-family: MetaBold;
+  font-size: 44px;
+  text-align: center;
+  margin: 0 0 5px;
+}
+.wizard h3 {
+  color: #68b6db;
+  font-family: MetaBold;
+  font-size: 22px;
+  text-align: center;
+  margin: 0;
+}
+.wizard .questionBlock {
+  width: 300px;
+  margin: 30px 0 0 31px;
+  float: left;
+}
+.wizard .questionBlock img {
+  display: block;
+  margin: 30px auto 35px;
+}
+.wizard .questionBlock p {
+  font-size: 16px;
+  font-family: MetaBold;
+  margin-bottom: 10px;
+}
+.wizard .questionBlock p .isThatAll {
+  font-size: 12px;
+  border-bottom: 2px solid #68b6db;
+  padding-bottom: 2px;
+  position: relative;
+  cursor: pointer;
+}
+.wizard .questionBlock p .isThatAll #moreData {
+  position: absolute;
+  background: #68b6db;
+  color: #fff;
+  width: 200px;
+  display: none;
+  left: -100px;
+  padding: 10px;
+  top: -90px;
+  font-family: MetaNormal;
+  border-radius: 2px;
+}
+.wizard .questionBlock p .isThatAll:hover #moreData {
+  display: block;
+}
+.wizard .questionBlock .answer {
+  font-family: Helvetica, Arial;
+  font-size: 12px;
+  font-weight: bold;
+  color: #888;
+  background: #fff;
+  border-radius: 2px;
+  border: 1px solid #d8d8d8;
+  display: inline-block;
+  padding: 8px;
+  margin: 5px 0 0  0;
+  cursor: pointer;
+  -webkit-transition: background 0.2s linear;
+  position: relative;
+}
+.wizard .questionBlock .answer .example {
+  display: none;
+  position: absolute;
+  width: 90%;
+  background: #444;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  font-size: 10px;
+  padding: 4px;
+  top: -45px;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: #fff;
+  text-align: center;
+}
+.wizard .questionBlock .answer:hover {
+  background: #f2f2f2;
+  border: 1px solid #bebebe;
+}
+.wizard .questionBlock .answer:hover .example {
+  display: inline;
+}
+.wizard .questionBlock .answer.active {
+  background: #68b6db;
+  border: 1px solid #5198ba;
+  color: #fff;
+}
+.wizard .questionBlock .answer.inactive {
+  border: 1px solid #efefef;
+  color: #d3d3d3;
+}
+.wizard .questionBlock .answer.inactive:hover {
+  border: 1px solid #efefef;
+  color: #d3d3d3;
+  background: #fff;
+  cursor: default;
+}
+.scrolldown {
+  display: none;
+  text-align: center;
+  font-family: OpenSansCondensed;
+  margin: 20px auto 0;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 18px;
+}
+.overview {
+  margin-top: 56px;
+}
+.overview .navContainer {
+  width: 225px;
+  float: left;
+  margin-top: 10px;
+}
+.overview .navContainer nav.navigatie {
+  border-radius: 2px;
+  border: 1px solid #d1d1d1;
+  margin-bottom: 25px;
+  background: #fff;
+}
+.overview .navContainer nav.navigatie ul {
+  margin: 0;
+  padding: 0;
+}
+.overview .navContainer nav.navigatie ul li {
+  margin: 0;
+  padding: 15px 0 12px 10px;
+  border-bottom: 1px solid #ededed;
+  cursor: pointer;
+}
+.overview .navContainer nav.navigatie ul li .navArrow {
+  float: right;
+  padding-right: 10px;
+}
+.overview .navContainer nav.navigatie ul li:last-child {
+  border: none;
+}
+.overview .navContainer nav.navigatie ul li:hover {
+  background: #f0f0f0;
+}
+.overview .navContainer nav.navigatie ul .navPatterns.active {
+  font-family: MetaBold;
+  color: #db6868;
+}
+.overview .navContainer nav.navigatie ul .navInteractives.active {
+  font-family: MetaBold;
+  color: #db9e68;
+}
+.overview .navContainer nav.navigatie ul .navTools.active {
+  font-family: MetaBold;
+  color: #46c5a6;
+}
+.overview .navContainer nav.navigatie ul .backToTop {
+  font-family: MetaNormal;
+  color: #444;
+}
+.overview .navContainer nav.navigatie ul .backToTop .navArrow {
+  -webkit-transform: rotate(-90deg);
+  padding-left: 15px;
+  padding-right: 10px;
+}
+.overview .navContainer .filterNav {
+  border-radius: 2px;
+  border: 1px solid #d1d1d1;
+  margin-bottom: 25px;
+  background: #fff;
+  padding-bottom: 15px;
+}
+.overview .navContainer .filterNav .heading {
+  border-bottom: 1px solid #ededed;
+  padding-left: 10px;
+}
+.overview .navContainer .filterNav .heading p {
+  font-size: 16px;
+  font-family: MetaBold;
+  float: left;
+  margin-bottom: 10px;
+}
+.overview .navContainer .filterNav .heading a {
+  float: right;
+  font-size: 12px;
+  color: #c3c3c3;
+  text-decoration: none;
+  padding: 19px 10px 0 0;
+}
+.overview .navContainer .filterNav .filterContainer {
+  font-size: 12px;
+  padding: 0 10px;
+}
+.overview .navContainer .filterNav .filterContainer p {
+  font-family: MetaBold;
+  margin-bottom: 5px;
+}
+.overview .navContainer .filterNav .filterContainer form input {
+  margin-right: 5px;
+  margin-bottom: 4px;
+}
+.overview .resultsContainer {
+  width: 770px;
+  float: right;
+  margin-top: 10px;
+}
+.overview .cardContainer {
+  margin-left: -6px;
+}
+.overview .results {
+  padding-bottom: 50px;
+}
+.overview .results .intro {
+  margin-bottom: 40px;
+}
+.overview .results .intro h4 {
+  font-family: MetaBold;
+  font-size: 38px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.overview .results .intro p {
+  margin: 0;
+  font-family: MetaBold;
+  font-size: 14px;
+  line-height: 2em;
+}
+.overview .results .intro a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 2px 6px 0;
+  font-family: MetaBold;
+  border-radius: 2px;
+  margin-top: -2px;
+  margin-left: 5px;
+  position: absolute;
+}
+.overview .patterns {
+  border-top: 2px solid #db6868;
+}
+.overview .patterns .intro a {
+  background: #db6868;
+}
+.overview .interactives {
+  border-top: 2px solid #db9e68;
+}
+.overview .interactives .intro a {
+  background: #db9e68;
+}
+.overview .interactives .credit {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+.overview .interactives h6 {
+  font-family: MetaBold;
+  color: #a0a0a0;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.overview .interactives .patternsUsed div {
+  font-family: OpenSansCondensed;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+  padding: 3px 4px 3px;
+  background: #e9a4a4;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 2px;
+}
+.overview .tools {
+  border-top: 2px solid #46c5a6;
+}
+.overview .tools .intro a {
+  background: #46c5a6;
+}
+.result {
+  width: 220px;
+  color: #444;
+  background: #fff;
+  padding: 0 15px 10px 15px;
+  display: inline-block;
+  margin-left: 2px;
+  margin-bottom: 8px;
+  vertical-align: top;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.result img {
+  margin-left: -15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.result .credit {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+.result h5 {
+  font-family: MetaBold;
+  font-size: 16px;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+.result p.description {
+  margin-top: 5px;
+  font-size: 14px;
+}
+.result a.category {
+  font-family: OpenSansCondensed;
+  font-size: 12px;
+  padding: 5px 5px 2px 5px;
+  color: #444;
+  background: #efefef;
+  border-radius: 2px;
+  text-decoration: none;
+  margin-top: 12px;
+  display: none;
+}
+.result p.amountInteractives {
+  font-size: 12px;
+}
+.result p.amountInteractives span {
+  color: #db9e68;
+  border-bottom: 2px solid #db9e68;
+  padding-bottom: 2px;
+  text-decoration: none;
+  font-family: MetaBold;
+}
+.result:hover {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+.fixed {
+  position: fixed;
+  top: 0;
+}
+.skill {
+  font-size: 12px;
+  padding-left: 14px;
+  background: url(../img/skillIcon.png) no-repeat 0 2px;
+}
+nav.treeNav {
+  margin-top: -10px;
+}
+nav.treeNav .active {
+  font-family: MetaBold;
+  color: #db6868;
+}
+nav.treeNav h3 {
+  font-family: MetaBold;
+  font-size: 20px;
+  margin-top: 0;
+}
+nav.treeNav h4 {
+  font-family: MetaBold;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+nav.treeNav ul {
+  margin-top: 5px;
+  padding-left: 10px;
+}
+nav.treeNav ul li {
+  font-family: MetaNormal;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.detailPage {
+  float: right;
+  position: relative;
+}
+.detailPage .sectionName {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  margin-top: 0;
+  font-family: MetaBold;
+  font-size: 14px;
+}
+.detailPage h3 {
+  font-family: MetaBold;
+  font-size: 40px;
+  float: left;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+.detailPage .category {
+  float: left;
+  font-family: OpenSansCondensed;
+  background: #fff;
+  font-size: 14px;
+  border-radius: 2px;
+  padding: 5px;
+  margin-top: 25px;
+  margin-left: 10px;
+}
+.detailPage .description {
+  font-size: 18px;
+  margin-top: 0;
+}
+.detailPage h4 {
+  font-family: MetaBold;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+.detailPage ul {
+  margin-top: 0;
+  padding-left: 18px;
+  float: left;
+}
+.detailPage img.toWizard {
+  float: right;
+  margin-top: -30px;
+  margin-right: 180px;
+}
+.detailPage .relatedInteractives {
+  margin-top: 80px;
+}
+.detailPage .relatedInteractives h4 {
+  margin-bottom: 20px;
+}
+.detailPage .relatedInteractives h4 a {
+  text-decoration: none;
+  border-bottom: 2px solid #db9e68;
+  color: #db9e68;
+  padding-bottom: 2px;
+}
+.patternDetail {
+  width: 770px;
+  border-top: 2px solid #db6868;
+}
+.patternDetail .sectionName {
+  color: #db6868;
+}
+.patternDetail h3 {
+  color: #db6868;
+}
+.interactiveDetail {
+  width: 1024px;
+  border-top: 2px solid #db9e68;
+}
+.interactiveDetail .sectionName {
+  color: #db9e68;
+}
+.interactiveDetail h3 {
+  color: #db9e68;
+}
+.patternsOverview {
+  float: right;
+  width: 770px;
+}
+.noBorder {
+  border: none !important;
+}
+.patternsOverview .result,
+.interactivesOverview .result,
+.toolsOverview .result {
+  margin-left: 12px;
+  padding: 0 10px;
+}
+.patternsOverview .result img,
+.interactivesOverview .result img,
+.toolsOverview .result img {
+  width: 240px;
+  margin-left: -10px;
+}
+.interactivesOverview .result {
+  padding-bottom: 10px;
+}
+.interactivesOverview .result .patternsUsed div {
+  margin: 0 5px 5px 0;
+}
+.infoContent {
+  margin-top: 50px;
+}
+.infoContent h2 {
+  font-family: MetaBold;
+  margin-top: 40px;
+}
+.infoContent p {
+  font-size: 18px;
+  width: 60%;
+}
