@@ -311,6 +311,11 @@ header{
 				padding: 0 10px;
 				p{font-family:MetaBold; margin-bottom: 5px;}
 				form{
+					label{
+						display: block;
+    					padding-left: 17px;
+    					text-indent: -17px;
+					}
 					input{
 						margin-right:5px;
 						margin-bottom: 4px;
@@ -325,20 +330,20 @@ header{
 		margin-top: 10px;
 	}
 	.cardContainer{
-		margin-left:-6px;
+		margin-left:-12px;
 	}
 	.results{
 		padding-bottom: 50px;
 
 		.intro{
-			margin-bottom: 40px;
+			margin-bottom: 60px;
 			h4{
 				font-family: MetaBold;
 				font-size: 38px;
 				margin-top: 20px;
 				margin-bottom: 10px;
 			}
-			p{margin: 0; font-family: MetaBold; font-size: 14px; line-height: 2em;}
+			p{margin: 0; font-family: MetaBold; font-size: 14px; line-height: 2em; margin-right: 5px;}
 			a{
 				color: #fff;
 				text-decoration: none;
@@ -347,8 +352,8 @@ header{
 				font-family: MetaBold;
 				border-radius: 2px;
 				margin-top: -2px;
+				display: inline-block;
 				margin-left: 5px;
-				position: absolute;
 			}
 		}
 		
@@ -385,18 +390,19 @@ header{
 }
 
 	.result{
+		margin-left:12px;
+		padding: 0 10px 10px;
 		width: 220px;
 		color: #444;
 		background: #fff;
-		padding: 0 15px 10px 15px;
 		display: inline-block;
-		margin-left: 2px;
 		margin-bottom: 8px;
 		vertical-align: top;
 		border: 1px solid rgba(0,0,0,0.2);
 		cursor: pointer;
 		img{
-			margin-left: -15px;
+			width:240px;
+			margin-left:-10px;
 			border-bottom: 1px solid rgba(0,0,0,0.1);
 		}
 		.credit{
@@ -559,17 +565,7 @@ position: relative;
 	border: none !important;
 }
 
-.patternsOverview .result, .interactivesOverview .result, .toolsOverview .result{
-	margin-left:12px;
-	padding: 0 10px;
-	img{
-		width:240px;
-		margin-left:-10px;
-	}
-}
-
-.interactivesOverview .result{
-	padding-bottom: 10px;
+.result{
 	.patternsUsed div{
 		margin: 0 5px 5px 0;
 	}

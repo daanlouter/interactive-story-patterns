@@ -14,7 +14,7 @@
         
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <link rel="stylesheet/less" type="text/css" href="css/styles.less" />
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
         <script src="js/vendor/less.js" type="text/javascript"></script>
     </head>
@@ -44,13 +44,27 @@
                     <img src="img/mediaIcon.png" />
                     <p class="wizardQuestion">What kind of data and media assets does your story involve? <span class="isThatAll">(There is more data than you think!)<span id="moreData">There is a lot of data out there. Have you thought about local open data, or data from social networks like Twitter, Foursquare and Instagram?</span></span></p>
                     <div class="wizardAnswers">
-                        <div class="answer 1"><div class="example">eg. IEDs in Afghanistan</div>Geographic data </div>
-                        <div class="answer 2"><div class="example">eg. timeline of Thatcher's life</div>Historical data</div>
-                        <div class="answer 3"><div class="example">eg. profiles of 115 papal candidates</div>Structured data about a subject</div>
-                        <div class="answer 4"><div class="example">eg. Olympics</div>Rich images</div>
-                        <div class="answer 5">User Generated Content (UGC)</div>
-                        <div class="answer 6"><div class="example">eg. radio interviews</div>Audio</div>
-                        <div class="answer 7"><div class="example">eg. Dunalley Bushfires</div>Long-form story</div>
+                        <div class="answer 1" data-name="geographicData">
+                            <div class="example">eg. IEDs in Afghanistan</div>Geographic data 
+                        </div>
+                        <div class="answer 2" data-name="historicalData">
+                            <div class="example">eg. timeline of Thatcher's life</div>Historical data
+                        </div>
+                        <div class="answer 3" data-name="structuredData">
+                            <div class="example">eg. profiles of 115 papal candidates</div>Structured data about a subject
+                        </div>
+                        <div class="answer 4" data-name="UGC">User Generated Content (UGC)</div>
+                        <div class="answer 5" data-name="longForm">
+                            <div class="example">eg. Dunalley Bushfires</div>Long-form story
+                        </div>
+                        <div class="answer 6" data-name="richImage">
+                            <div class="example">eg. Olympics</div>Rich images
+                        </div>
+                        
+                        <div class="answer 7" data-name="audio">
+                            <div class="example">eg. radio interviews</div>Audio
+                        </div>
+                        
                         
                     </div>
                 </section>
@@ -58,18 +72,30 @@
                     <img src="img/tellingIcon.png" />
                     <p class="wizardQuestion">Why is a traditional article not suitable for telling this story?</p>
                     <div class="wizardAnswers">
-                        <div class="answer 8"><div class="example">eg. election results for every postcode in the UK</div>There's more data in this story than I could possibly fit in a regular article</div>
-                        <div class="answer 9"><div class="example">eg. 'Pick a pope' vs. 'Read 115 cardinal profiles'</div>The story could engage readers more if presented another way</div>
-                        <div class="answer 10"><div class="example">eg. Dunalley bushfires</div>A regular article won't convey the emotional core of the story</div>
+                        <div class="answer 8" data-name="tooMuchData">
+                            <div class="example">eg. election results for every postcode in the UK</div>There's more data in this story than I could possibly fit in a regular article
+                        </div>
+                        <div class="answer 9" data-name="engageMore">
+                            <div class="example">eg. 'Pick a pope' vs. 'Read 115 cardinal profiles'</div>The story could engage readers more if presented another way
+                        </div>
+                        <div class="answer 10" data-name="emotionalCore">
+                            <div class="example">eg. Dunalley bushfires</div>A regular article won't convey the emotional core of the story
+                        </div>
                     </div>
                 </section>
                 <section class="questionBlock" id="question3">
                     <img src="img/checkIcon.png" />
                     <p class="wizardQuestion">Which of the following best describes your story?</p>
                     <div class="wizardAnswers">
-                        <div class="answer 11"><div class="example">eg. 'PM leaves daughter, 8, down the pub'</div>It's a traditional, linear narrative</div>
-                        <div class="answer 12"><div class="example">eg. Hurricane Katrina / Budget / Olympics</div>It's a multi-threaded story with distinct,<br> standalone parts</div>
-                        <div class="answer 13"><div class="example">eg. 'Census 2011: how has your area changed?' / 'You make the cuts'</div>It's a story that has different meaning for different people</div>
+                        <div class="answer 11" data-name="linearNarrative">
+                            <div class="example">eg. 'PM leaves daughter, 8, down the pub'</div>It's a traditional, linear narrative
+                        </div>
+                        <div class="answer 12" data-name="multiThreaded">
+                            <div class="example">eg. Hurricane Katrina / Budget / Olympics</div>It's a multi-threaded story with distinct,<br> standalone parts
+                        </div>
+                        <div class="answer 13" data-name="differentMeaning">
+                            <div class="example">eg. 'Census 2011: how has your area changed?' / 'You make the cuts'</div>It's a story that has  different<br> meaning for different people
+                        </div>
                     </div>
                 </section>
                 <div class="clearboth"></div>
@@ -99,25 +125,25 @@
                         <div class="filterContainer">
                             <p>Available data and media assets</p>
                             <form>
-                                <label><input class="1" type="checkbox" />Geographic data</label><br>
-                                <label><input class="2" type="checkbox" />Historical data</label><br>
-                                <label><input class="3" type="checkbox" />Structured data about subject</label><br>
-                                <label><input class="4" type="checkbox" />User Generated Content</label><br>
-                                <label><input class="5" type="checkbox" />Long-form story</label><br>
-                                <label><input class="6" type="checkbox" />Audio</label><br>
-                                <label><input class="7" type="checkbox" />Rich images</label>
+                                <label><input class="1" data-name="geographicData" type="checkbox" />Geographic data</label>
+                                <label><input class="2" data-name="historicalData" type="checkbox" />Historical data</label>
+                                <label><input class="3" data-name="structuredData" type="checkbox" />Structured data about subject</label>
+                                <label><input class="4" data-name="UGC" type="checkbox" />User Generated Content</label>
+                                <label><input class="5" data-name="longForm" type="checkbox" />Long-form story</label>
+                                <label><input class="6" data-name="richImage" type="checkbox" />Rich images</label>
+                                <label><input class="7" data-name="audio" type="checkbox" />Audio</label>
                             </form>
                             <p>Reason regular article is not suitable</p>
                             <form>
-                                <label><input class="8" type="checkbox" />There's more data in this story than I could possibly fit in a regular article</label><br>
-                                <label><input class="9" type="checkbox" />The Story could engage readers more if presented another way</label><br>
-                                <label><input class="10" type="checkbox" />A regular article won't convey the emotional core of the story</label><br>
+                                <label><input class="8" data-name="tooMuchData" type="checkbox" />There's more data in this story than I could possibly fit in a regular article</label>
+                                <label><input class="9" data-name="engageMore" type="checkbox" />The Story could engage readers more if presented another way</label>
+                                <label><input class="10" data-name="emotionalCore" type="checkbox" />A regular article won't convey the emotional core of the story</label>
                             </form>
                             <p>Statement about the story</p>
                             <form>
-                                <label><input class="11" type="checkbox" />It's a traditional, linear narrative</label><br>
-                                <label><input class="12" type="checkbox" />It's a multi-threaded story with distinct, standalone parts</label><br>
-                                <label><input class="13" type="checkbox" />It's a story that has different meaning for <label>different people</label>
+                                <label><input class="11" data-name="linearNarrative" type="checkbox" />It's a traditional, linear narrative</label>
+                                <label><input class="12" data-name="multiThreaded" type="checkbox" />It's a multi-threaded story with distinct, standalone parts</label>
+                                <label><input class="13" data-name="differentMeaning" type="checkbox" />It's a story that has different meaning for different people</label>
                             </form>
                         </div>
                     </section>
@@ -126,11 +152,11 @@
                     <div class="results patterns">
                         <div class="intro clearfix">
                             <h4>Patterns</h4>
-                            <p>There are 4 'patterns' that could be the basis for an interactive about this story. An 'interactive pattern' is a style or a type of interactive - or an approach to making an interactive - that offers a particular way for a reader to engage with a story.<br> <a href="#">See all patterns »</a></p>
+                            <p>There are 4 'patterns' that could be the basis for an interactive about this story. An 'interactive pattern' is a style or a type of interactive - or an approach to making an interactive - that offers a particular way for a reader to engage with a story. <a href="#" style="margin-left:0;">See all patterns »</a></p>
                             
                         </div>
                         <div class="cardContainer">
-                            <a href="patterns/pattern.html" class="result patternResult">
+                            <!-- <a href="patterns/pattern.html" class="result patternResult">
                                 <img src="img/map.png" />
                                 <h5>Use a map</h5>
                                 <p class="description">A graphical display of a location. Can be used to place content on specific locations</p>
@@ -153,7 +179,7 @@
                                 <h5>Display images big inside page</h5>
                                 <p class="description">A linear display of events, based on time. Useful if you have data based on time</p>
                                 <p class="amountInteractives"><span>8 interactives</span> use this pattern</p>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                     <div class="results interactives">
@@ -162,7 +188,7 @@
                             <p>There are 4 examples of similar interactives<a href="#">See all interactives »</a></p>
                         </div>
                         <div class="cardContainer clearfix">
-                            <a href="examples/example.html" class="result exampleResult">
+                            <!-- <a href="examples/example.html" class="result exampleResult">
                             <img src="img/stateofnation.png" />
                             <h5>The state of our union is... dumber</h5>
                             <div class="clearboth"></div>
@@ -214,7 +240,7 @@
                                 <div>let users pick what they see</div>
                                 <div>let users vote</div>
                             </div>
-                        </a>
+                        </a> -->
                         </div>
                     </div>
                     <div class="results tools">
@@ -222,14 +248,15 @@
                             <h4>Tools</h4>
                             <p>There is 1 tool that can help you build this interactive <a href="#">See all tools »</a></p>
                         </div>
-                            <a href="tools/tool.html" class="result">
+                        <div class="cardContainer clearfix">
+                            <!-- <a href="http://timeline.verite.co/" class="result">
                                 <img src="img/timelinejs.png" />
                                 <h5>Timeline JS</h5>
                                 <p class="credit">timeline.verite.co</p>
                                 <p class="description">A javascript library to build aesthetic timelines. Possibility to use Google Spreadsheet.</p>
                                 <div class="skill">Minor programming skills required</div>
-                            </a>
-                            
+                            </a> -->
+                        </div>
                         
                     </div>
                 </div>
